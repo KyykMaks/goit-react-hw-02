@@ -1,9 +1,5 @@
 import css from './Notification.module.css'
 
-export const Notification = () => {
-    return (
-        <div>
-            <p className = {css.notification}>No feedback yet</p>
-        </div>
-    )
-}
+export const Notification = ({ message }) => (
+    <p className={css.notification}>{message}</p>
+  );

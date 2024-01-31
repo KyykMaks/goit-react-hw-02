@@ -22,11 +22,7 @@ const getInitialClick = () => {
   if(savedClicks !== null){
     return JSON.parse(savedClicks);
   }
-  return {
-    good: 0,
-    neutral: 0,
-    bad:0,
-  }
+  return 0;
 }
 
 
@@ -64,12 +60,14 @@ export const App = () => {
   const totalFeedback = values.good + values.neutral + values.bad;
 
   const positiveFeedback = Math.round(((values.good + values.neutral)/totalFeedback)*100);
+
+
   return (
     <div>
       <Description />
       <Options onUpdate={onLeaveFeedback} isHidden={isHidden} onReset={onReset} />
       {
-        isHidden ? <Notification  /> : <Feedback values={values} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}/> 
+        isHidden ? <Notification message="No feedback yet" />  : <Feedback values={values} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}/> 
       }
     </div>
   );
