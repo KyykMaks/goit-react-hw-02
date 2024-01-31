@@ -52,7 +52,7 @@ export const App = () => {
 
   useEffect(()=> {
     window.localStorage.setItem('save-values', JSON.stringify(values));
-    window.localStorage.setItem('save-click', clicks)
+    window.localStorage.setItem('save-click', JSON.stringify(clicks))
   },[values,clicks]);
 
   const isHidden = clicks === 0;
